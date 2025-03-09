@@ -1,1 +1,109 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height:100%;
+}
+
+/*app-root,*/
+/*app-product,*/
+/*app-order {*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*}*/
+
+
+.ui-widget-content {
+  border: none;
+}
+
+.my-arrow {
+  width: 20px;
+  fill: white;
+}
+
+.my-arrow-open {
+  width: 20px;
+  order: 2;
+  fill: white;
+  display: none;
+}
+
+.ui-accordion-header:focus .my-arrow {
+  display: none;
+}
+
+.ui-accordion-header:focus .my-arrow-open {
+  display: block;
+}
+
+.main-form {
+  max-width: 636px;
+}
+
+.my-card {
+  height: 100%;
+}
+
+@media screen and (max-width: 1439px) {
+
+  .slick-prev {
+    width: 30px;
+    height: 30px;
+  }
+  .slick-prev::before {
+    font-size: 30px;
+  }
+  .slick-next {
+    width: 30px;
+    height: 30px;
+  }
+  .slick-next::before {
+    font-size: 30px;
+  }
+}
+
+
+@media screen and (max-width: 1023px) {
+  .my-btn {
+    width: 100px;
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .my-label {
+    justify-content: center;
+  }
+
+  .my-label span {
+    margin-right: 10px;
+  }
+  .slick-prev {
+    width: 15px;
+    height: 15px;
+  }
+  .slick-prev::before {
+    font-size:15px;
+  }
+  .slick-next {
+    width: 15px;
+    height:15px;
+  }
+  .slick-next::before {
+    font-size:15px;
+  }
+
+}
+
+
+@media screen and (max-width: 374px) {
+  .my-choice {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+

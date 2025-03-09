@@ -1,0 +1,136 @@
+<div class="container-lg main-form mt-5 text-center" style="height: 100%;">
+  <ng-container *ngIf="!orderSuccess; else orderSuccessMessage">
+    <h2 class="mb-5 fw-bold">Сделать заказ</h2>
+    <form action="" class="" id="my-form" [formGroup]="formOrder" (ngSubmit)="order()">
+      <div class="col-md">
+        <label class="d-flex flex-md-column my-label">
+          <span class="text-lg-start">Товар</span>
+          <input type="text" id="product" class="form-control border border-secondary-subtle rounded-1 "
+                 formControlName="product">
+        </label>
+      </div>
+      <div class="row gy-4">
+
+
+        <div class="col-md-4">
+          <label class="d-flex flex-md-column my-label"
+                 [class]="{'text-danger': name?.invalid && (name?.dirty || name?.touched)}">
+            <span class="text-lg-start">Имя</span>
+            <input type="text" id="name" name="name" class=" form-control border border-secondary-subtle rounded-1"
+                   formControlName="name"
+                   [class]="{'border-danger': name?.invalid && (name?.dirty || name?.touched)}"/>
+          </label>
+          <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+            <div class="text-danger" *ngIf="name?.errors?.['required']">
+              Заполните поле.
+            </div>
+            <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+              Введите корректное имя.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <label class="d-flex flex-md-column my-label"
+                 [class]="{'text-danger': last_name?.invalid && (last_name?.dirty || last_name?.touched)}">
+            <span class="text-lg-start">Фамилия</span>
+            <input type="text" id="last_name" name="last_name"
+                   class="form-control border border-secondary-subtle rounded-1" formControlName="last_name"
+                   [class]="{'border-danger': last_name?.invalid && (last_name?.dirty || last_name?.touched)}"
+            >
+          </label>
+
+          <div *ngIf="last_name?.invalid && (last_name?.dirty || last_name?.touched)">
+            <div class="text-danger" *ngIf="last_name?.errors?.['required']">
+              Заполните поле.
+            </div>
+            <div class="text-danger" *ngIf="last_name?.errors?.['pattern']">
+              Введите корректную фамилию.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label class="d-flex flex-md-column my-label"
+                 [class]="{'text-danger': phone?.invalid && (phone?.dirty || phone?.touched)}">
+            <span class="text-lg-start">Телефон</span>
+            <input type="text" id="phone" name="phone" class="form-control border border-secondary-subtle rounded-1"
+                   formControlName="phone"
+                   [class]="{'border-danger': phone?.invalid && (phone?.dirty || phone?.touched)}">
+          </label>
+          <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+            <div class="text-danger" *ngIf="phone?.errors?.['required']">
+              Заполните поле.
+            </div>
+            <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+              Введите корректный номер телефона.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="d-flex flex-md-column my-label"
+                 [class]="{'text-danger': country?.invalid && (country?.dirty || country?.touched)}">
+            <span class="text-lg-start">Страна</span>
+            <input type="text" id="country" name="country" class="border border-secondary-subtle rounded-1"
+                   formControlName="country"
+                   [class]="{'border-danger': country?.invalid && (country?.dirty || country?.touched)}">
+          </label>
+          <div *ngIf="country?.invalid && (country?.dirty || country?.touched)">
+            <div class="text-danger" *ngIf="country?.errors?.['required']">
+              Заполните поле.
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <label class="d-flex flex-md-column my-label"
+                 [class]="{'text-danger': zip?.invalid && (zip?.dirty || zip?.touched)}">
+            <span class="text-lg-start">Индекс</span>
+            <input type="text" id="zip" name="zip" class="border border-secondary-subtle rounded-1"
+                   formControlName="zip" [class]="{'border-danger': zip?.invalid && (zip?.dirty || zip?.touched)}">
+          </label>
+          <div *ngIf="zip?.invalid && (zip?.dirty || zip?.touched)">
+            <div class="text-danger" *ngIf="zip?.errors?.['required']">
+              Заполните поле.
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <label class="d-flex flex-md-column my-label"
+                 [class]="{'text-danger': address?.invalid && (address?.dirty || address?.touched)}">
+            <span class="text-lg-start">Адрес</span>
+            <input type="text" id="address" name="address" class="border border-secondary-subtle rounded-1"
+                   formControlName="address"
+                   [class]="{'border-danger': address?.invalid && (address?.dirty || address?.touched)}"
+            >
+          </label>
+          <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+            <div class="text-danger" *ngIf="address?.errors?.['required']">
+              Заполните поле.
+            </div>
+            <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+              Введите корректный адрес.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md">
+        <label class="d-flex flex-md-column my-label">
+          <span class="text-lg-start">Комментарий к заказу</span>
+          <input type="text" id="comment" name="comment" class="border border-secondary-subtle rounded-1">
+        </label>
+      </div>
+      <div class="d-md-flex justify-content-md-start">
+        <button type="submit" class="btn btn-primary mt-4 col-3 my-btn hvr-shadow">Отправить</button>
+      </div>
+      <div class="col-12" *ngIf="orderError">
+        <p class="text-left text-danger">Произошла ошибка. Попробуйте еще раз.</p>
+      </div>
+    </form>
+  </ng-container>
+  <ng-template #orderSuccessMessage>
+    <div id="thankYou">Спасибо за заказ!</div>
+  </ng-template>
+
+</div>
