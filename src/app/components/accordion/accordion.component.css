@@ -1,0 +1,11 @@
+.accordion-item {
+  border: transparent;
+}
+.accordion-button {
+  height: 68px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size:20px;
+  color: white;
+  background: linear-gradient(0.00deg, rgb(7, 107, 255), rgb(0, 123, 255) 100%);
+}
