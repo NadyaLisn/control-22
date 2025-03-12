@@ -28,19 +28,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/css/magnific-popup.css",
-              "src/assets/css/slick-theme.css",
-              "src/assets/css/bootstrap.min.css",
-              "src/assets/css/jquery-ui.min.css",
-              "src/assets/css/slick.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
-
-              "src/assets/scripts/jquery-ui.min.js",
-
-              "src/assets/scripts/bootstrap.min.js"
-
             ],
             "server": "src/main.server.ts",
             "prerender": true,
